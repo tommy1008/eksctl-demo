@@ -1,11 +1,11 @@
 kind: ClusterConfig
 apiVersion: eksctl.io/v1alpha5
 metadata:
-    name: tommytest
+    name: $Cluster
     region: us-east-1
 
 nodeGroups:
-  - name: tommytest-nodegroup
+  - name: base
     minSize: 1
     desiredCapacity: 1
     maxSize: 1
@@ -16,7 +16,7 @@ nodeGroups:
       withAddonPolicies:
         autoScaler: true 
 
-  - name: tommytest-spot
+  - name: spot
     minSize: 1
     maxSize: 1
     instancesDistribution:
