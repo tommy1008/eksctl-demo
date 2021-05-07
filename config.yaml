@@ -1,14 +1,14 @@
 kind: ClusterConfig
 apiVersion: eksctl.io/v1alpha5
 metadata:
-    name: tommy-test
+    name: tommytest
     region: us-east-1
 
 nodeGroups:
   - name: base
     minSize: 1
-    desiredCapacity: 1
     maxSize: 1
+    desiredCapacity: 1
     instancesDistribution:
       instanceTypes: ["t2.micro"] # At least one instance type should be specified
       onDemandBaseCapacity: 0
@@ -19,6 +19,7 @@ nodeGroups:
   - name: spot
     minSize: 1
     maxSize: 1
+    desiredCapacity: 1
     instancesDistribution:
       maxPrice: 0.0035
       instanceTypes: ["t2.micro"] # At least one instance type should be specified
