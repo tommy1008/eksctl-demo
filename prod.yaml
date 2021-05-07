@@ -8,7 +8,7 @@ nodeGroups:
   - name: base
     minSize: 1
     maxSize: 10
-    desiredCapacity: 0
+    desiredCapacity: 1
     instancesDistribution:
       instanceTypes: ["t3.small", "t3.medium"] # At least one instance type should be specified
       OnDemandBaseCapacity: 0
