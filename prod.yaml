@@ -1,0 +1,32 @@
+kind: ClusterConfig
+apiVersion: eksctl.io/v1alpha5
+metadata:
+    name: tommytest
+    region: us-east-1
+
+nodeGroups:
+  - name: base
+    minSize: 1
+    maxSize: 10
+    desiredCapacity: 0
+    instancesDistribution:
+      instanceTypes: ["t3.small", "t3.medium"] # At least one instance type should be specified
+      OnDemandBaseCapacity: 0
+      OnDemandPercentageAboveBaseCapacity: 50
+      SpotAllocationStrategy: capacity-optimized
+      SpotMaxPrice: 0.025000
+    iam:
+      withAddonPolicies:
+        autoScaler: true 
+  - name: spot
+    minSize: 0
+    maxSize: 50
+    desiredCapacity: 0
+    instancesDistribution:
+      instanceTypes: ["t3.xlarge","m4.2xlarge", "m4.4xlarge"] # At least one instance type should be specified
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 0
+      SpotAllocationStrategy: lowest-price
+    iam:
+      withAddonPolicies:
+        autoScaler: true 
