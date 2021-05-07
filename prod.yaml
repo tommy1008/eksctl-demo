@@ -13,8 +13,8 @@ nodeGroups:
       instanceTypes: ["t3.small", "t3.medium"] # At least one instance type should be specified
       OnDemandBaseCapacity: 0
       OnDemandPercentageAboveBaseCapacity: 50
+      MaxPrice: 0.025000
       SpotAllocationStrategy: capacity-optimized
-      SpotMaxPrice: 0.025000
     iam:
       withAddonPolicies:
         autoScaler: true 
